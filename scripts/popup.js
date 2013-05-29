@@ -18,15 +18,14 @@ function display_stories(feed_data) {
     var xml_doc = feed_data.target.responseXML;
 	$xml = $(xml_doc);
     var items = $xml.find("item");
-	console.log(items[0]);
     $('#popup').html('<img src="images/logo.png" id="logo" onclick="open_item(\'http://lifehacker.com/\'); window.close();" /><br clear="all" />');
+	console.log(items[0]);
     items.each(function(index, element) {
         var post = parse_post(element);
-		console.log(post);
+	//	console.log(post);
         var item = '';
         var class2 = '';
         if (index >= localStorage['unread_count']) {
-            // // console.log('visited');
             item += '<div class="post read">';
         }
         else {

@@ -1,5 +1,4 @@
 function parse_post(element) {
-	// console.log(element);
 	var post = new Object();
 	post.title = $(element).find("title").text();
 	console.log(post.title);
