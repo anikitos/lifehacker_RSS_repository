@@ -19,10 +19,9 @@ function display_stories(feed_data) {
 	$xml = $(xml_doc);
     var items = $xml.find("item");
     $('#popup').html('<img src="images/logo.png" id="logo" onclick="open_item(\'http://lifehacker.com/\'); window.close();" /><br clear="all" />');
-	console.log(items[0]);
+	//console.log(items[0]);
     items.each(function(index, element) {
         var post = parse_post(element);
-	//	console.log(post);
         var item = '';
         var class2 = '';
         if (index >= localStorage['unread_count']) {
@@ -31,15 +30,16 @@ function display_stories(feed_data) {
         else {
             item += '<div class="post">'
         }
-        item += '<span class="tag">' + post.tag + '</span>\
-                    <a href="' + post.url + '">\
-                        <div id="' + post.id + '" class="item" onclick="open_item(\'' + post.url + '\');">\
-                            <img src="' + post.img + '" width="107" height="60" />\
-                            <h4>' + post.title + '</h4>\
-                            <span class="description">' + post.description + '...</span>\
-                        </div>\
-                    </a>';
-        item += '</div>';
+        item += "<span class=\"tag\">" + post.tag + "</span>\n" +
+                "\n" +
+                "<div id=\"" + post.id + "\" class=\"item\"    >\n"+    //onclick=\"open_item(\'" + post.url + "\')\">\n" +
+                "<img src=\"" + post.img + "\" width=\"107\" height=\"60\" />\n" +
+                "<a href=\"" + post.url + "\" target=\"_blank\"><h4>" + post.title + "</h4></a>\n" +
+                "<span class=\"description\">" + post.description + "...</span>\n" +
+                "</div>\n" +
+                "\n";
+        item += "</div>";
+		//console.log(item);
         $('#popup').append(item);
     });
 }

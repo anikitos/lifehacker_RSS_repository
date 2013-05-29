@@ -1,7 +1,7 @@
 function parse_post(element) {
 	var post = new Object();
 	post.title = $(element).find("title").text();
-	console.log(post.title);
+	    //console.log(post.title);
 	post.tag = $(element).find("category").text();
 	//post.tag = post.title.split('[')[1].split(']')[0];
 	//post.title = post.title.split('[')[0];
